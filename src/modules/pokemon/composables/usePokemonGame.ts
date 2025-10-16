@@ -28,10 +28,12 @@ export const usePokemonGame = () => {
     return pokemonArray.sort(() => Math.random() - 0.5);
   };
 
-  const getNextOptions = (howMany: number = 4) => {
+  const getNextRound = (howMany: number = 4) => {
     gameStatus.value = GameStatus.Playing;
     pokemonOptions.value = pokemons.value.slice(0, howMany);
     pokemons.value = pokemons.value.slice(howMany);
+
+    console.log(gameStatus.value);
   }
 
   const checkAnswer = (id: number) => {
@@ -52,7 +54,7 @@ export const usePokemonGame = () => {
   onMounted(async () => {
     pokemons.value = await getPokemons();
     // console.log(pokemons.value);
-    getNextOptions();
+    getNextRound();
     console.log(pokemonOptions.value);
   });
 
@@ -63,7 +65,7 @@ export const usePokemonGame = () => {
     pokemonOptions,
     randomPokemon,
     // Methods
-    // getNextOptions,
     checkAnswer,
+    getNextRound,
   };
 }
