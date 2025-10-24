@@ -33,7 +33,7 @@ export const usePokemonGame = () => {
     pokemonOptions.value = pokemons.value.slice(0, howMany);
     pokemons.value = pokemons.value.slice(howMany);
 
-    console.log(gameStatus.value);
+    // console.log(gameStatus.value);
   }
 
   const checkAnswer = (id: number) => {
